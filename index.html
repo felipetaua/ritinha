@@ -371,123 +371,6 @@
             opacity: 0.85;
         }
 
-        .mural-add-btn {
-            display: block;
-            margin: 48px auto 0;
-            background: transparent;
-            border: 2px dashed var(--accent-color);
-            border-radius: 50px;
-            color: var(--accent-color);
-            font-family: 'Dancing Script', cursive;
-            font-size: 1.2rem;
-            padding: 12px 32px;
-            cursor: pointer;
-            transition: background 0.25s ease, color 0.25s ease;
-        }
-
-        .mural-add-btn:hover {
-            background: var(--accent-color);
-            color: #fff;
-        }
-
-        /* Modal mural */
-        .mural-modal-overlay {
-            display: none;
-            position: fixed;
-            inset: 0;
-            background: rgba(91,74,66,0.55);
-            z-index: 100;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .mural-modal-overlay.open {
-            display: flex;
-        }
-
-        .mural-modal {
-            background: var(--bg-color);
-            border-radius: 20px;
-            padding: 36px 32px;
-            width: 90%;
-            max-width: 480px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.2);
-            position: relative;
-        }
-
-        .mural-modal h3 {
-            font-family: 'Dancing Script', cursive;
-            font-size: 1.8rem;
-            color: var(--accent-color);
-            margin: 0 0 20px;
-        }
-
-        .mural-modal label {
-            display: block;
-            font-size: 0.8rem;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-            opacity: 0.7;
-            margin-bottom: 6px;
-            margin-top: 14px;
-        }
-
-        .mural-modal input,
-        .mural-modal textarea,
-        .mural-modal select {
-            width: 100%;
-            padding: 10px 14px;
-            border: 1.5px solid rgba(212,163,115,0.4);
-            border-radius: 10px;
-            background: #fff;
-            color: var(--text-color);
-            font-family: 'Montserrat', sans-serif;
-            font-size: 0.9rem;
-            box-sizing: border-box;
-            outline: none;
-            transition: border-color 0.2s;
-        }
-
-        .mural-modal input:focus,
-        .mural-modal textarea:focus,
-        .mural-modal select:focus {
-            border-color: var(--accent-color);
-        }
-
-        .mural-modal textarea {
-            resize: vertical;
-            min-height: 90px;
-        }
-
-        .mural-modal-actions {
-            display: flex;
-            gap: 12px;
-            margin-top: 24px;
-        }
-
-        .mural-modal-actions button {
-            flex: 1;
-        }
-
-        .btn-cancel {
-            background: transparent !important;
-            border: 1.5px solid rgba(212,163,115,0.5) !important;
-            color: var(--text-color) !important;
-        }
-
-        .mural-modal-close {
-            position: absolute;
-            top: 14px;
-            right: 18px;
-            font-size: 1.4rem;
-            background: none;
-            border: none;
-            cursor: pointer;
-            color: var(--text-color);
-            opacity: 0.5;
-            padding: 0;
-        }
-
         /* ===== HERO FOTO FAVORITA ===== */
         .hero-foto {
             position: relative;
@@ -857,67 +740,34 @@
         <div class="mural-grid" id="muralGrid">
 
             <div class="mural-card">
-                <div class="mural-card-placeholder">🎨</div>
+                <img class="mural-card-img" src="img/desenho-1.jpg" alt="Desenho">
                 <div class="mural-card-body">
                     <p class="mural-card-type">Desenho</p>
-                    <h3 class="mural-card-title">O primeiro rabisco</h3>
-                    <p class="mural-card-desc">Aquela arte que nasceu do nada numa tarde preguiçosa. Guardei como se fosse ouro.</p>
+                    <h3 class="mural-card-title">O primeiro de muitos</h3>
+                    <p class="mural-card-desc">Eu amei tanto que fica na minha parede para eu olhar e lembrar a pessoa incrivel que tem na minha vida.</p>
                 </div>
             </div>
 
             <div class="mural-card">
-                <div class="mural-card-placeholder">🎁</div>
+                <img class="mural-card-img" src="img/desenho-2.jpg" alt="Presente">
                 <div class="mural-card-body">
                     <p class="mural-card-type">Presente</p>
                     <h3 class="mural-card-title">Surpresa sem motivo</h3>
-                    <p class="mural-card-desc">O melhor tipo de presente: sem data especial, só porque quis. Você sabe fazer isso bem.</p>
+                    <p class="mural-card-desc">Até a forma que nós conhecemos foi diferente, ela criou um jogo muito bom para se conhecer para min foi um contrato.</p>
                 </div>
             </div>
 
             <div class="mural-card">
-                <div class="mural-card-placeholder">💌</div>
+                <img class="mural-card-img" src="img/desenho-3.jpg" alt="Cartinha">
                 <div class="mural-card-body">
                     <p class="mural-card-type">Cartinha</p>
                     <h3 class="mural-card-title">As palavras dela</h3>
-                    <p class="mural-card-desc">Leio de vez em quando só pra lembrar que isso é real e que é meu.</p>
+                    <p class="mural-card-desc">Leio de vez em quando só pra lembrar que isso é real e que é meu, são os presentes que melhora o dia de qualquer pessoa.</p>
                 </div>
             </div>
 
         </div>
-
-        <button class="mural-add-btn" onclick="abrirModalMural()">+ Adicionar ao mural</button>
     </section>
-
-    <!-- Modal para adicionar item ao mural -->
-    <div class="mural-modal-overlay" id="muralModalOverlay">
-        <div class="mural-modal">
-            <button class="mural-modal-close" onclick="fecharModalMural()">✕</button>
-            <h3>Novo item no mural</h3>
-
-            <label>Tipo</label>
-            <select id="muralTipo">
-                <option value="Desenho">🎨 Desenho</option>
-                <option value="Presente">🎁 Presente</option>
-                <option value="Cartinha">💌 Cartinha</option>
-                <option value="Foto">📷 Foto</option>
-                <option value="Outro">✨ Outro</option>
-            </select>
-
-            <label>Título</label>
-            <input type="text" id="muralTitulo" placeholder="Nome do item...">
-
-            <label>Descrição</label>
-            <textarea id="muralDesc" placeholder="Conta um pouco sobre este presente ou desenho..."></textarea>
-
-            <label>Emoji (opcional)</label>
-            <input type="text" id="muralEmoji" placeholder="Ex: 🌸" maxlength="2">
-
-            <div class="mural-modal-actions">
-                <button class="btn-cancel" onclick="fecharModalMural()">Cancelar</button>
-                <button onclick="adicionarAoMural()">Adicionar ✨</button>
-            </div>
-        </div>
-    </div>
 
     <!-- ===== CONTADOR REGRESSIVO ===== -->
     <section class="countdown-section">
@@ -949,7 +799,7 @@
     </audio>
 
     <footer>
-        <p>Feito com ❤️ pelo seu Amor da sua vida.</p>
+        <p>Feito com ❤️ pelo Amor da sua vida Tauã Felipe.</p>
     </footer>
 
     <script>
@@ -1026,62 +876,6 @@
         window.dispatchEvent(new Event('scroll'));
 
         // ===== MURAL =====
-        const emojiPorTipo = {
-            'Desenho': '🎨',
-            'Presente': '🎁',
-            'Cartinha': '💌',
-            'Foto': '📷',
-            'Outro': '✨'
-        };
-
-        function abrirModalMural() {
-            document.getElementById('muralModalOverlay').classList.add('open');
-            document.body.style.overflow = 'hidden';
-        }
-
-        function fecharModalMural() {
-            document.getElementById('muralModalOverlay').classList.remove('open');
-            document.body.style.overflow = '';
-            document.getElementById('muralTitulo').value = '';
-            document.getElementById('muralDesc').value = '';
-            document.getElementById('muralEmoji').value = '';
-        }
-
-        document.getElementById('muralModalOverlay').addEventListener('click', function(e) {
-            if (e.target === this) fecharModalMural();
-        });
-
-        function adicionarAoMural() {
-            const tipo   = document.getElementById('muralTipo').value;
-            const titulo = document.getElementById('muralTitulo').value.trim();
-            const desc   = document.getElementById('muralDesc').value.trim();
-            const emoji  = document.getElementById('muralEmoji').value.trim() || emojiPorTipo[tipo];
-
-            if (!titulo) {
-                document.getElementById('muralTitulo').focus();
-                return;
-            }
-
-            const card = document.createElement('div');
-            card.className = 'mural-card';
-            card.innerHTML = `
-                <div class="mural-card-placeholder">${emoji}</div>
-                <div class="mural-card-body">
-                    <p class="mural-card-type">${tipo}</p>
-                    <h3 class="mural-card-title">${titulo}</h3>
-                    <p class="mural-card-desc">${desc}</p>
-                </div>`;
-
-            document.getElementById('muralGrid').appendChild(card);
-
-            // Pequeno delay para a animação de entrada funcionar
-            requestAnimationFrame(() => {
-                requestAnimationFrame(() => card.classList.add('visible'));
-            });
-
-            fecharModalMural();
-        }
-
         // ===== CONTADOR REGRESSIVO =====
         (function contagem() {
             const alvo = new Date('2026-06-16T00:00:00');
