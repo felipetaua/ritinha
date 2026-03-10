@@ -84,6 +84,84 @@
             z-index: 10;
         }
 
+        /* ===== BOTTOM SHEET POLAROID ===== */
+        .bs-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(91,74,66,0.45);
+            z-index: 200;
+            align-items: flex-end;
+            justify-content: center;
+        }
+
+        .bs-overlay.open {
+            display: flex;
+        }
+
+        .bs-sheet {
+            background: var(--bg-color);
+            width: 100%;
+            max-width: 640px;
+            border-radius: 28px 28px 0 0;
+            padding: 32px 28px 48px;
+            box-shadow: 0 -8px 40px rgba(0,0,0,0.15);
+            transform: translateY(100%);
+            transition: transform 0.38s cubic-bezier(0.32,0.72,0,1);
+            position: relative;
+        }
+
+        .bs-overlay.open .bs-sheet {
+            transform: translateY(0);
+        }
+
+        .bs-handle {
+            width: 40px;
+            height: 4px;
+            background: var(--accent-color);
+            opacity: 0.35;
+            border-radius: 99px;
+            margin: 0 auto 28px;
+        }
+
+        .bs-close {
+            position: absolute;
+            top: 18px;
+            right: 22px;
+            background: none;
+            border: none;
+            font-size: 1.3rem;
+            cursor: pointer;
+            color: var(--text-color);
+            opacity: 0.45;
+            padding: 0;
+        }
+
+        .bs-close:hover { opacity: 1; }
+
+        .bs-img {
+            width: 100%;
+            max-height: 260px;
+            object-fit: cover;
+            border-radius: 16px;
+            filter: sepia(15%);
+            margin-bottom: 22px;
+        }
+
+        .bs-title {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2rem;
+            color: var(--accent-color);
+            margin: 0 0 14px;
+        }
+
+        .bs-text {
+            font-size: 0.97rem;
+            font-weight: 300;
+            line-height: 1.85;
+            white-space: pre-line;
+        }
+
         /* Seção Especial Neco */
         .neco-section {
             margin-top: 100px;
@@ -116,6 +194,72 @@
             padding: 8px 15px;
             border-radius: 20px;
             cursor: pointer;
+        }
+
+        /* ===== CONTADOR REGRESSIVO ===== */
+        .countdown-section {
+            text-align: center;
+            padding: 80px 20px 100px;
+            background: linear-gradient(180deg, rgba(212,163,115,0.08) 0%, rgba(253,246,236,0) 100%);
+        }
+
+        .countdown-section h2 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.4rem;
+            color: var(--accent-color);
+            margin-bottom: 8px;
+        }
+
+        .countdown-section .countdown-sub {
+            font-size: 0.9rem;
+            font-weight: 300;
+            opacity: 0.65;
+            margin-bottom: 48px;
+            letter-spacing: 0.04em;
+        }
+
+        .countdown-boxes {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .countdown-box {
+            background: var(--polaroid-white);
+            border-radius: 20px;
+            box-shadow: 0 8px 28px rgba(0,0,0,0.09);
+            padding: 28px 32px;
+            min-width: 100px;
+        }
+
+        .countdown-box .cd-num {
+            font-family: 'Dancing Script', cursive;
+            font-size: 3.6rem;
+            color: var(--accent-color);
+            line-height: 1;
+            display: block;
+        }
+
+        .countdown-box .cd-label {
+            display: block;
+            font-size: 0.7rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            opacity: 0.55;
+            margin-top: 6px;
+        }
+
+        .countdown-arrived {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.2rem;
+            color: var(--accent-color);
+            animation: pulseText 1.6s ease infinite;
+        }
+
+        @keyframes pulseText {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50%       { opacity: 0.7; transform: scale(1.06); }
         }
 
         footer {
@@ -561,17 +705,17 @@
     <div class="container">
         
         <div class="album">
-            <div class="polaroid p1" onclick="saySomething('O começo de tudo...')">
+            <div class="polaroid p1" onclick="abrirPolaroid('p1')">
                 <img src="./img/gatos-1.jpg" alt="Piquenique">
                 <p>Felicidade em um dia Qualquer 🌳</p>
             </div>
 
-            <div class="polaroid p2" onclick="saySomething('A folha mais importante do mundo')">
+            <div class="polaroid p2" onclick="abrirPolaroid('p2')">
                 <img src="./img/gata-3.jpg" alt="Sonhos">
                 <p>Nossos planos no papel ✨</p>
             </div>
 
-            <div class="polaroid p3" onclick="saySomething('O brilho que eu amo ver')">
+            <div class="polaroid p3" onclick="abrirPolaroid('p3')">
                 <img src="./img/gata-4.jpg" alt="Rita">
                 <p>Sua espontaneidade 🌸</p>
             </div>
@@ -653,7 +797,10 @@
                 <img class="scroll-img" src="img/gata-2.jpg" alt="Momento nosso">
                 <img class="scroll-img" src="img/gato-2.jpg" alt="Momento nosso">
                 <img class="scroll-img" src="img/gata-2.jpg" alt="Momento nosso">
+                <img class="scroll-img" src="img/gato-3.jpg" alt="Momento nosso">
+                <img class="scroll-img" src="img/gata-3.jpg" alt="Momento nosso">
                 <img class="scroll-img" src="img/gata-4.jpg" alt="Momento nosso">
+                <img class="scroll-img" src="img/gato-4.jpg " alt="Momento nosso">
                 <img class="scroll-img" src="img/gata-5.jpg" alt="Momento nosso">
                 <img class="scroll-img" src="img/gato-5.jpg" alt="Momento nosso">
                 <img class="scroll-img" src="img/gata-3.jpg" alt="Momento nosso">
@@ -669,6 +816,9 @@
                 <img class="scroll-img" src="img/gata-2.jpg" alt="Momento nosso">
                 <img class="scroll-img" src="img/gato-2.jpg" alt="Momento nosso">
                 <img class="scroll-img" src="img/gata-2.jpg" alt="Momento nosso">
+                <img class="scroll-img" src="img/gato-3.jpg" alt="Momento nosso">
+                <img class="scroll-img" src="img/gata-3.jpg" alt="Momento nosso">
+                <img class="scroll-img" src="img/gato-4.jpg" alt="Momento nosso">
                 <img class="scroll-img" src="img/gata-4.jpg" alt="Momento nosso">
                 <img class="scroll-img" src="img/gata-5.jpg" alt="Momento nosso">
                 <img class="scroll-img" src="img/gato-5.jpg" alt="Momento nosso">
@@ -684,8 +834,19 @@
     </section>
 
     <div id="music-player">
-        <span id="track-name">🎵 Nosso Lofi</span>
+        <span id="track-name">🎵 Nosso som</span>
         <button onclick="toggleMusic()">Play/Pause</button>
+    </div>
+
+    <!-- ===== BOTTOM SHEET POLAROID ===== -->
+    <div class="bs-overlay" id="bsOverlay">
+        <div class="bs-sheet">
+            <div class="bs-handle"></div>
+            <button class="bs-close" onclick="fecharPolaroid()">✕</button>
+            <img class="bs-img" id="bs-img" src="" alt="">
+            <h2 class="bs-title" id="bs-title"></h2>
+            <p class="bs-text" id="bs-text"></p>
+        </div>
     </div>
 
     <!-- ===== MURAL DE DESENHOS E PRESENTES ===== -->
@@ -758,13 +919,37 @@
         </div>
     </div>
 
+    <!-- ===== CONTADOR REGRESSIVO ===== -->
+    <section class="countdown-section">
+        <h2>Contagem regressiva</h2>
+        <p class="countdown-sub">faltam exatamente...</p>
+        <div class="countdown-boxes" id="countdownBoxes">
+            <div class="countdown-box">
+                <span class="cd-num" id="cd-dias">--</span>
+                <span class="cd-label">dias</span>
+            </div>
+            <div class="countdown-box">
+                <span class="cd-num" id="cd-horas">--</span>
+                <span class="cd-label">horas</span>
+            </div>
+            <div class="countdown-box">
+                <span class="cd-num" id="cd-min">--</span>
+                <span class="cd-label">minutos</span>
+            </div>
+            <div class="countdown-box">
+                <span class="cd-num" id="cd-seg">--</span>
+                <span class="cd-label">segundos</span>
+            </div>
+        </div>
+    </section>
+
     <!-- Coloque o arquivo MP3 da música de vocês na pasta do projeto com o nome "musica.mp3" -->
     <audio id="bg-music" loop>
         <source src="musica.mp3" type="audio/mpeg">
     </audio>
 
     <footer>
-        <p>Feito com ❤️ pelo seu Arquiteto favorito.</p>
+        <p>Feito com ❤️ pelo seu Amor da sua vida.</p>
     </footer>
 
     <script>
@@ -778,9 +963,44 @@
             }
         }
 
-        function saySomething(text) {
-            alert(text); // Aqui você pode trocar por um efeito visual mais bonito depois
+        // ===== TEXTOS DAS POLAROIDS — edite à vontade =====
+        const polaroidData = {
+            p1: {
+                titulo: 'Felicidade em um dia qualquer 🌳',
+                texto: 'Oie eu conheci uma garota incrível eu acho que a mulher da minha vida, eu me sinto feliz ao lado dela, ela me fazz querer melhorar todos os dias. Quando estou longe dela eu sinto sua falta ela tem algumas dores que carrega a muito tempo, e as vezes eu queria tanto ajudar ela, eu me esforço ao maximo para deixar a vida dela pelo menos 1% melhor a cada dia.',
+                img: './img/gatos-1.jpg'
+            },
+            p2: {
+                titulo: 'Nossos planos no papel ✨',
+                texto: 'Quando estavamos caminhando em um dia com sol pelando seguindo o fluxo normal, você fugiu do padrão pensou pq não cruzar a rodovia e explorar, e foi a melhor escolha que nós fizemos, subimos em uma arvore kkk ela tinha dono mas tudo certo, e vimos vakinha foi o dia!',
+                img: './img/gata-3.jpg'
+            },
+            p3: {
+                titulo: 'Sua espontaneidade 🌸',
+                texto: 'Amor é uma pratica diária, uma diciplina e não um talento ou uma descoberta. Amor é um projeto praticamente um pulo no escuro que exige coragem, apesar dos risco eu escolhi estar ao seu lado respeitando seu tempo, o amor é praticado exige tempo.',
+                img: './img/gata-4.jpg'
+            }
+        };
+
+        function abrirPolaroid(id) {
+            const d = polaroidData[id];
+            if (!d) return;
+            document.getElementById('bs-img').src         = d.img;
+            document.getElementById('bs-img').alt         = d.titulo;
+            document.getElementById('bs-title').textContent = d.titulo;
+            document.getElementById('bs-text').textContent  = d.texto;
+            document.getElementById('bsOverlay').classList.add('open');
+            document.body.style.overflow = 'hidden';
         }
+
+        function fecharPolaroid() {
+            document.getElementById('bsOverlay').classList.remove('open');
+            document.body.style.overflow = '';
+        }
+
+        document.getElementById('bsOverlay').addEventListener('click', function(e) {
+            if (e.target === this) fecharPolaroid();
+        });
 
         // Efeito de aparecer as fotos ao rolar
         window.addEventListener('scroll', () => {
@@ -816,10 +1036,12 @@
 
         function abrirModalMural() {
             document.getElementById('muralModalOverlay').classList.add('open');
+            document.body.style.overflow = 'hidden';
         }
 
         function fecharModalMural() {
             document.getElementById('muralModalOverlay').classList.remove('open');
+            document.body.style.overflow = '';
             document.getElementById('muralTitulo').value = '';
             document.getElementById('muralDesc').value = '';
             document.getElementById('muralEmoji').value = '';
@@ -859,6 +1081,36 @@
 
             fecharModalMural();
         }
+
+        // ===== CONTADOR REGRESSIVO =====
+        (function contagem() {
+            const alvo = new Date('2026-06-16T00:00:00');
+
+            function atualizar() {
+                const agora = new Date();
+                const diff  = alvo - agora;
+
+                if (diff <= 0) {
+                    document.getElementById('countdownBoxes').innerHTML =
+                        '<p class="countdown-arrived">🌸 O dia chegou! 🌸</p>';
+                    return;
+                }
+
+                const dias  = Math.floor(diff / 86400000);
+                const horas = Math.floor((diff % 86400000) / 3600000);
+                const min   = Math.floor((diff % 3600000)  / 60000);
+                const seg   = Math.floor((diff % 60000)    / 1000);
+
+                document.getElementById('cd-dias').textContent  = String(dias).padStart(2, '0');
+                document.getElementById('cd-horas').textContent = String(horas).padStart(2, '0');
+                document.getElementById('cd-min').textContent   = String(min).padStart(2, '0');
+                document.getElementById('cd-seg').textContent   = String(seg).padStart(2, '0');
+
+                setTimeout(atualizar, 1000);
+            }
+
+            atualizar();
+        })();
     </script>
 </body>
 </html>
