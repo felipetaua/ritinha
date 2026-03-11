@@ -206,6 +206,7 @@
             display: flex;
             align-items: center;
             gap: 10px;
+            z-index: 99;
         }
 
         button {
@@ -597,6 +598,37 @@
             transform: scale(1.04) translateY(-6px);
             filter: sepia(0%);
         }
+
+        /* ===== SNOOPY FLUTUANTE ===== */
+        header, .neco-section, .feelings-section, .countdown-section {
+            position: relative;
+            overflow: visible;
+        }
+
+        .snoopy-wrap {
+            position: absolute;
+            pointer-events: none;
+            user-select: none;
+            z-index: 5;
+            opacity: 0.82;
+            filter: drop-shadow(0 6px 16px rgba(0,0,0,0.13));
+            animation: snoopyFloat 5s ease-in-out infinite;
+        }
+
+        .snoopy-wrap img { width: 100%; display: block; }
+
+        .snoopy-wrap.alt  { animation-name: snoopyFloatB; animation-duration: 5.8s; animation-delay: 1s; }
+        .snoopy-wrap.slow { animation-duration: 7s; animation-delay: 0.6s; }
+
+        @keyframes snoopyFloat {
+            0%, 100% { transform: translateY(0) rotate(-3deg); }
+            50%       { transform: translateY(-18px) rotate(3deg); }
+        }
+
+        @keyframes snoopyFloatB {
+            0%, 100% { transform: translateY(0) rotate(3deg); }
+            50%       { transform: translateY(-14px) rotate(-4deg); }
+        }
     </style>
 </head>
 <body>
@@ -604,6 +636,10 @@
     <header>
         <h1>Nosso Infinito Particular</h1>
         <p>Cada detalhe nosso guardado aqui.</p>
+        <!-- Snoopy 1: header -->
+        <div style="bottom: -28%;width:120px;" class="snoopy-wrap" >
+            <img  src="./img/amor-love.webp" alt="">
+        </div>
     </header>
 
     <div class="container">
@@ -627,6 +663,10 @@
         <section class="neco-section">
             <h2>🐾 Um lugar para o Neco</h2>
             <p>"Obrigado por ser meu abraço quando ele se foi. Você é minha paz."</p>
+            <!-- Snoopy 2: neco -->
+            <div class="snoopy-wrap alt" style="left:12px;top:-30px;width:72px;">
+                <img src="./img/snoopy.webp" alt="">
+            </div>
         </section>
 
     </div>
@@ -688,10 +728,17 @@
             Do jeito que cabe nos detalhes e do jeito que transborda.<br>
             Completamente."
         </div>
+        <!-- Snoopy 3: feelings -->
+        <div class="snoopy-wrap slow" style="right: 4%;top:34%;width:78px;">
+            <img src="./img/kwai-kuromi.gif" alt="">
+        </div>
     </section>
 
     <!-- ===== GALERIA COM SCROLL ===== -->
     <section class="gallery-section">
+        <div style="text-align:center; padding: 20px 0 0;">
+            <img src="./img/scooby.gif" alt="Scooby" style="width:210px; animation: snoopyFloat 5s ease-in-out infinite; display:inline-block; filter: drop-shadow(0 6px 16px rgba(0,0,0,0.13)); border-radius: 32px;">
+        </div>
         <h2>Nossos momentos ✨</h2>
         <div class="scroll-track-wrapper">
             <div class="scroll-track" id="scrollTrack">
@@ -817,6 +864,10 @@
         </div>
         <br>
         <p class="countdown-sub">Olha esse contador é apenas um ponto de início, o mais importe é o processo até chegar no dia, o crescimento pessoal a maturidade de ambos, no processo terá mais momentos ruins e nosso objetivo é tornar os dias bons, lembre eu estarei junto com você :) o importante é não desistir até porque não nascemos herdeiros kkk</p>
+        <!-- Snoopy 4: countdown -->
+        <div class="snoopy-wrap alt" style="right:30px;bottom:24px;width:85px;">
+            <img src="./img/Black And White Love GIF.gif" alt="">
+        </div>
     </section>
 
     <!-- Coloque o arquivo MP3 da música de vocês na pasta do projeto com o nome "musica.mp3" -->
