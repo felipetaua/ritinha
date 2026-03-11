@@ -104,11 +104,26 @@
             width: 100%;
             max-width: 640px;
             border-radius: 28px 28px 0 0;
-            padding: 32px 28px 48px;
+            padding: 0;
             box-shadow: 0 -8px 40px rgba(0,0,0,0.15);
             transform: translateY(100%);
             transition: transform 0.38s cubic-bezier(0.32,0.72,0,1);
             position: relative;
+            max-height: 88vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .bs-sheet-top {
+            flex-shrink: 0;
+            position: relative;
+            padding: 28px 28px 0;
+        }
+
+        .bs-body {
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+            padding: 20px 28px 48px;
         }
 
         .bs-overlay.open .bs-sheet {
@@ -121,20 +136,26 @@
             background: var(--accent-color);
             opacity: 0.35;
             border-radius: 99px;
-            margin: 0 auto 28px;
+            margin: 0 auto 20px;
         }
 
         .bs-close {
             position: absolute;
-            top: 18px;
-            right: 22px;
+            top: 10px;
+            right: 14px;
             background: none;
             border: none;
             font-size: 1.3rem;
             cursor: pointer;
             color: var(--text-color);
             opacity: 0.45;
-            padding: 0;
+            padding: 10px;
+            min-width: 44px;
+            min-height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            touch-action: manipulation;
         }
 
         .bs-close:hover { opacity: 1; }
@@ -586,7 +607,6 @@
     </header>
 
     <div class="container">
-        
         <div class="album">
             <div class="polaroid p1" onclick="abrirPolaroid('p1')">
                 <img src="./img/gatos-1.jpg" alt="Piquenique">
@@ -724,11 +744,15 @@
     <!-- ===== BOTTOM SHEET POLAROID ===== -->
     <div class="bs-overlay" id="bsOverlay">
         <div class="bs-sheet">
-            <div class="bs-handle"></div>
-            <button class="bs-close" onclick="fecharPolaroid()">✕</button>
-            <img class="bs-img" id="bs-img" src="" alt="">
-            <h2 class="bs-title" id="bs-title"></h2>
-            <p class="bs-text" id="bs-text"></p>
+            <div class="bs-sheet-top">
+                <div class="bs-handle"></div>
+                <button class="bs-close" onclick="fecharPolaroid()">✕</button>
+            </div>
+            <div class="bs-body">
+                <img class="bs-img" id="bs-img" src="" alt="">
+                <h2 class="bs-title" id="bs-title"></h2>
+                <p class="bs-text" id="bs-text"></p>
+            </div>
         </div>
     </div>
 
@@ -791,6 +815,8 @@
                 <span class="cd-label">segundos</span>
             </div>
         </div>
+        <br>
+        <p class="countdown-sub">Olha esse contador é apenas um ponto de início, o mais importe é o processo até chegar no dia, o crescimento pessoal a maturidade de ambos, no processo terá mais momentos ruins e nosso objetivo é tornar os dias bons, lembre eu estarei junto com você :) o importante é não desistir até porque não nascemos herdeiros kkk</p>
     </section>
 
     <!-- Coloque o arquivo MP3 da música de vocês na pasta do projeto com o nome "musica.mp3" -->
@@ -848,8 +874,21 @@
             document.body.style.overflow = '';
         }
 
-        document.getElementById('bsOverlay').addEventListener('click', function(e) {
+        const bsOverlay = document.getElementById('bsOverlay');
+        const bsSheet   = bsOverlay.querySelector('.bs-sheet');
+
+        bsOverlay.addEventListener('click', function(e) {
             if (e.target === this) fecharPolaroid();
+        });
+
+        // Fecha ao tocar na área escura no celular
+        bsOverlay.addEventListener('touchend', function(e) {
+            if (e.target === this) fecharPolaroid();
+        });
+
+        // Garante que toques no sheet não fechem o modal
+        bsSheet.addEventListener('touchend', function(e) {
+            e.stopPropagation();
         });
 
         // Efeito de aparecer as fotos ao rolar
