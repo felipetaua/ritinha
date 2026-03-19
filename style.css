@@ -633,6 +633,87 @@ button {
     animation: pulseText 1.6s ease infinite;
 }
 
+.mystery-area {
+    margin-top: 26px;
+}
+
+.mystery-button {
+    background: linear-gradient(135deg, #722685 0%, #a959b1 100%);
+    color: #fff;
+    border: 1px solid rgba(63, 21, 73, 0.2);
+    border-radius: 999px;
+    padding: 12px 24px;
+    font-size: 0.8rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    box-shadow: 0 10px 24px rgba(58, 42, 34, 0.3);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+}
+
+.mystery-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 30px rgba(58, 42, 34, 0.4);
+    filter: brightness(1.06);
+}
+
+.mystery-modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 300;
+    background: rgba(25, 17, 33, 0.6);
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.mystery-modal-overlay.open {
+    display: flex;
+}
+
+.mystery-modal {
+    width: min(560px, 100%);
+    background: linear-gradient(145deg, #fff3ff 0%, #f8e8ff 100%);
+    border: 1px solid rgba(114, 38, 133, 0.2);
+    border-radius: 24px;
+    padding: 28px 24px;
+    box-shadow: 0 22px 50px rgba(38, 11, 45, 0.35);
+    position: relative;
+    text-align: center;
+}
+
+.mystery-modal-title {
+    font-family: 'Dancing Script', cursive;
+    font-size: 2.2rem;
+    color: #722685;
+    margin: 0 0 12px;
+}
+
+.mystery-modal-text {
+    font-size: 1rem;
+    line-height: 1.8;
+    margin: 0 0 10px;
+}
+
+.mystery-modal-close {
+    position: absolute;
+    top: 10px;
+    right: 12px;
+    border: none;
+    background: transparent;
+    color: #722685;
+    font-size: 1.2rem;
+    opacity: 0.6;
+    cursor: pointer;
+    min-width: 40px;
+    min-height: 40px;
+    padding: 8px;
+}
+
+.mystery-modal-close:hover {
+    opacity: 1;
+}
+
 @keyframes pulseText {
     0%,
     100% {

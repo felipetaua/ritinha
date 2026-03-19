@@ -283,6 +283,17 @@
                 <span class="cd-label">segundos</span>
             </div>
         </div>
+        <div class="mystery-area" id="mysteryArea" hidden>
+            <button class="mystery-button" type="button">? Botao Misterioso ?</button>
+        </div>
+        <div class="mystery-modal-overlay" id="mysteryModalOverlay">
+            <div class="mystery-modal" role="dialog" aria-modal="true" aria-labelledby="mysteryTitle">
+                <button class="mystery-modal-close" id="mysteryModalClose" aria-label="Fechar mensagem">✕</button>
+                <h3 class="mystery-modal-title" id="mysteryTitle">Obrigado por esperar esse tempo todo</h3>
+                <p class="mystery-modal-text">Agora eu quero te pedir uma coisa especial: me procure para um momento so nosso.</p>
+                <p class="mystery-modal-text">E quando me encontrar, fale a palavra misteriosa: <strong>INFINITO</strong>.</p>
+            </div>
+        </div>
         <br>
         <p class="countdown-sub">Olha esse contador é apenas um ponto de início, o mais importe é o processo até chegar no dia, o crescimento pessoal a maturidade de ambos, no processo terá mais momentos ruins e nosso objetivo é tornar os dias bons, lembre eu estarei junto com você :) o importante é não desistir até porque não nascemos herdeiros kkk</p>
         <!-- Snoopy 4: countdown -->
@@ -302,6 +313,9 @@
 
     <script>
         const music = document.getElementById('bg-music');
+        const mysteryButton = document.querySelector('.mystery-button');
+        const mysteryModalOverlay = document.getElementById('mysteryModalOverlay');
+        const mysteryModalClose = document.getElementById('mysteryModalClose');
         
         function toggleMusic() {
             if (music.paused) {
@@ -386,18 +400,38 @@
         // Dispara uma vez no carregamento para elementos já visíveis
         window.dispatchEvent(new Event('scroll'));
 
+        function abrirMensagemMisteriosa() {
+            mysteryModalOverlay.classList.add('open');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function fecharMensagemMisteriosa() {
+            mysteryModalOverlay.classList.remove('open');
+            document.body.style.overflow = '';
+        }
+
+        mysteryButton.addEventListener('click', abrirMensagemMisteriosa);
+        mysteryModalClose.addEventListener('click', fecharMensagemMisteriosa);
+
+        mysteryModalOverlay.addEventListener('click', function(e) {
+            if (e.target === this) fecharMensagemMisteriosa();
+        });
+
         // ===== MURAL =====
         // ===== CONTADOR REGRESSIVO =====
         (function contagem() {
             const alvo = new Date('2026-06-16T00:00:00');
+            const countdownBoxes = document.getElementById('countdownBoxes');
+            const mysteryArea = document.getElementById('mysteryArea');
 
             function atualizar() {
                 const agora = new Date();
                 const diff  = alvo - agora;
 
                 if (diff <= 0) {
-                    document.getElementById('countdownBoxes').innerHTML =
+                    countdownBoxes.innerHTML =
                         '<p class="countdown-arrived">🌸 O dia chegou! 🌸</p>';
+                    mysteryArea.hidden = false;
                     return;
                 }
 
