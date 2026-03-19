@@ -104,6 +104,27 @@ button {
     z-index: 10;
 }
 
+/* ===== BADGE DE CARD NOVO ===== */
+.mural-card {
+    position: relative;
+}
+
+.card-badge-new {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: #e65c4f;
+    color: #fff;
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 6px 10px;
+    border-radius: 999px;
+    box-shadow: 0 6px 14px rgba(230, 92, 79, 0.35);
+    z-index: 2;
+}
+
 /* ===== BOTTOM SHEET POLAROID ===== */
 .bs-overlay {
     display: none;
@@ -245,6 +266,13 @@ button {
     align-items: center;
     justify-content: center;
     margin-top: 80px;
+}
+
+@media screen and (max-width: 550px) {
+    .hero-foto {
+        height: 80vh;
+        background-position: calc(50% + 100px);
+    }
 }
 
 .hero-foto::before {
