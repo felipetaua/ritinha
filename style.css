@@ -49,6 +49,11 @@ button {
     cursor: pointer;
 }
 
+.logo-header {
+    border-radius: 50%;
+    width: 40vw;
+}
+
 /* ===== POLAROIDS ===== */
 .album {
     display: flex;
@@ -269,6 +274,9 @@ button {
 }
 
 @media screen and (max-width: 550px) {
+    .logo-header {
+        width: 100%;
+    }
     .hero-foto {
         height: 80vh;
         background-position: calc(50% + 100px);
