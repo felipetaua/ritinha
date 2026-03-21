@@ -301,6 +301,17 @@ button {
     z-index: 99;
 }
 
+@media screen and (max-width: 550px) {
+    #music-player {
+        left: 12px;
+        right: 12px;
+        bottom: 12px;
+        border-radius: 18px;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+}
+
 /* ===== HERO FOTO FAVORITA ===== */
 .hero-foto {
     position: relative;

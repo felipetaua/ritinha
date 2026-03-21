@@ -166,7 +166,8 @@
 
     <div id="music-player">
         <span id="track-name">🎵 Nosso som</span>
-        <button onclick="toggleMusic()">Play/Pause</button>
+        <button type="button" onclick="toggleMusic()">Play/Pause</button>
+        <button type="button" onclick="nextTrack()">Próxima</button>
     </div>
 
     <!-- ===== BOTTOM SHEET POLAROID ===== -->
@@ -316,9 +317,30 @@
 
     <script>
         const music = document.getElementById('bg-music');
+        const trackName = document.getElementById('track-name');
         const mysteryButton = document.querySelector('.mystery-button');
         const mysteryModalOverlay = document.getElementById('mysteryModalOverlay');
         const mysteryModalClose = document.getElementById('mysteryModalClose');
+
+        const playlist = [
+            { src: 'musica.mp3', nome: 'Nosso som' },
+            { src: 'musica-1.mp3', nome: 'Nosso som 2' }
+        ];
+        let currentTrackIndex = 0;
+
+        function setTrack(index, autoPlay = false) {
+            const track = playlist[index];
+            if (!track) return;
+
+            currentTrackIndex = index;
+            music.src = track.src;
+            trackName.textContent = `🎵 ${track.nome}`;
+            music.load();
+
+            if (autoPlay) {
+                music.play().catch(() => {});
+            }
+        }
         
         function toggleMusic() {
             if (music.paused) {
@@ -327,6 +349,15 @@
                 music.pause();
             }
         }
+
+        function nextTrack() {
+            const shouldPlay = !music.paused;
+            const nextIndex = (currentTrackIndex + 1) % playlist.length;
+            setTrack(nextIndex, shouldPlay);
+        }
+
+        music.addEventListener('ended', nextTrack);
+        setTrack(0);
 
         // ===== TEXTOS DAS POLAROIDS — edite à vontade =====
         const polaroidData = {
