@@ -7,6 +7,8 @@
     <!-- favicon -->
     <link rel="icon" href="./favicon.ico" type="image/x-icon">   
 
+    <!-- fonts-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
@@ -165,9 +167,18 @@
     </section>
 
     <div id="music-player">
-        <span id="track-name">🎵 Nosso som</span>
-        <button type="button" onclick="toggleMusic()">Play/Pause</button>
-        <button type="button" onclick="nextTrack()">Próxima</button>
+        <span id="track-name">
+            <i class="fa-solid fa-music" aria-hidden="true"></i>
+            <span id="track-title">Nosso som</span>
+        </span>
+        <button id="play-btn" type="button" onclick="toggleMusic()" aria-label="Tocar ou pausar">
+            <i class="fa-solid fa-play" aria-hidden="true"></i>
+            <span class="player-btn-label"></span>
+        </button>
+        <button id="next-btn" type="button" onclick="nextTrack()" aria-label="Próxima música">
+            <i class="fa-solid fa-forward-step" aria-hidden="true"></i>
+            <span class="player-btn-label"></span>
+        </button>
     </div>
 
     <!-- ===== BOTTOM SHEET POLAROID ===== -->
@@ -317,7 +328,10 @@
 
     <script>
         const music = document.getElementById('bg-music');
-        const trackName = document.getElementById('track-name');
+        const trackTitle = document.getElementById('track-title');
+        const playBtn = document.getElementById('play-btn');
+        const playBtnIcon = playBtn.querySelector('i');
+        const playBtnLabel = playBtn.querySelector('.player-btn-label');
         const mysteryButton = document.querySelector('.mystery-button');
         const mysteryModalOverlay = document.getElementById('mysteryModalOverlay');
         const mysteryModalClose = document.getElementById('mysteryModalClose');
@@ -335,11 +349,23 @@
 
             currentTrackIndex = index;
             music.src = track.src;
-            trackName.textContent = `🎵 ${track.nome}`;
+            trackTitle.textContent = track.nome;
             music.load();
 
             if (autoPlay) {
                 music.play().catch(() => {});
+            }
+
+            updatePlayButton();
+        }
+
+        function updatePlayButton() {
+            if (music.paused) {
+                playBtnIcon.className = 'fa-solid fa-play';
+                playBtnLabel.textContent = 'Play';
+            } else {
+                playBtnIcon.className = 'fa-solid fa-pause';
+                playBtnLabel.textContent = 'Pausar';
             }
         }
         
@@ -349,6 +375,8 @@
             } else {
                 music.pause();
             }
+
+            updatePlayButton();
         }
 
         function nextTrack() {
@@ -358,6 +386,8 @@
         }
 
         music.addEventListener('ended', nextTrack);
+    music.addEventListener('play', updatePlayButton);
+    music.addEventListener('pause', updatePlayButton);
         setTrack(0);
 
         // ===== TEXTOS DAS POLAROIDS — edite à vontade =====

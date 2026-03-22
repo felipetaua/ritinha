@@ -301,6 +301,23 @@ button {
     z-index: 99;
 }
 
+#track-name {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 500;
+}
+
+#music-player button {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+#music-player i {
+    font-size: 0.9rem;
+}
+
 @media screen and (max-width: 550px) {
     #music-player {
         left: 12px;
