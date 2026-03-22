@@ -477,6 +477,152 @@ button {
     transform: translateY(0);
 }
 
+/* ===== CARTA DA RITA ===== */
+.rita-section {
+    max-width: 900px;
+    margin: 40px auto 20px;
+    padding: 0 20px;
+}
+
+.rita-card {
+    background:
+        linear-gradient(135deg, rgba(255, 255, 255, 0.96) 0%, rgba(253, 246, 236, 0.94) 100%),
+        repeating-linear-gradient(
+            0deg,
+            transparent,
+            transparent 31px,
+            rgba(212, 163, 115, 0.12) 31px,
+            rgba(212, 163, 115, 0.12) 32px
+        );
+    border: 1px solid rgba(212, 163, 115, 0.4);
+    border-radius: 20px;
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+    padding: 28px 24px;
+    position: relative;
+    opacity: 0;
+    transform: translateY(26px);
+    transition: opacity 0.75s ease, transform 0.75s ease;
+}
+
+.rita-card::before {
+    content: '';
+    position: absolute;
+    left: 24px;
+    top: 24px;
+    bottom: 24px;
+    width: 3px;
+    border-radius: 4px;
+    background: rgba(212, 163, 115, 0.45);
+}
+
+.rita-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.rita-card h2 {
+    margin: 0 0 16px 22px;
+    color: var(--accent-color);
+    font-family: 'Dancing Script', cursive;
+    font-size: 2rem;
+}
+
+.rita-letter-text {
+    margin: 0 0 0 22px;
+    line-height: 1.8;
+    font-weight: 300;
+    white-space: pre-line;
+}
+
+/* ===== CARTA ROMANTICA ===== */
+.carta-section {
+    max-width: 900px;
+    margin: 0 auto 30px;
+    padding: 0 20px;
+}
+
+.love-letter-card {
+    background:
+        linear-gradient(135deg, rgba(255, 255, 255, 0.96) 0%, rgba(253, 246, 236, 0.94) 100%),
+        repeating-linear-gradient(
+            0deg,
+            transparent,
+            transparent 31px,
+            rgba(212, 163, 115, 0.12) 31px,
+            rgba(212, 163, 115, 0.12) 32px
+        );
+    border: 1px solid rgba(212, 163, 115, 0.4);
+    border-radius: 20px;
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+    padding: 28px 24px;
+    position: relative;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.85s ease, transform 0.85s ease;
+}
+
+.love-letter-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.love-letter-card::before {
+    content: '';
+    position: absolute;
+    left: 24px;
+    top: 24px;
+    bottom: 24px;
+    width: 3px;
+    border-radius: 4px;
+    background: rgba(212, 163, 115, 0.45);
+}
+
+.letter-kicker {
+    margin: 0 0 8px 22px;
+    font-size: 0.75rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--accent-color);
+    opacity: 0.8;
+}
+
+.love-letter-card h2 {
+    margin: 0 0 14px 22px;
+    color: var(--accent-color);
+    font-family: 'Dancing Script', cursive;
+    font-size: 2rem;
+}
+
+.love-letter-text {
+    margin: 0 0 0 22px;
+    white-space: pre-line;
+    line-height: 1.9;
+    font-weight: 300;
+}
+
+@media screen and (max-width: 550px) {
+    .love-letter-card,
+    .rita-card {
+        border-radius: 16px;
+        padding: 22px 18px;
+    }
+
+    .love-letter-card::before,
+    .rita-card::before {
+        left: 16px;
+        top: 18px;
+        bottom: 18px;
+    }
+
+    .letter-kicker,
+    .love-letter-card h2,
+    .love-letter-text,
+    .rita-card h2,
+    .rita-letter-text {
+        margin-left: 14px;
+    }
+}
+
 /* ===== GALERIA COM SCROLL ===== */
 .gallery-section {
     margin-top: 100px;
