@@ -917,6 +917,49 @@ button {
     margin-bottom: 15px;
 }
 
+.blog-post h3.blog-post-title {
+    margin-top: 10px;
+    margin-bottom: 12px;
+    font-size: 1.4rem;
+}
+
+.news-category-badge {
+    background-color: var(--accent-color, #c8a2c8);
+    color: white;
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.blog-post-desc {
+    margin-top: 12px;
+    color: #555;
+    line-height: 1.5;
+}
+
+.blog-post-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid #eee;
+}
+
+.blog-post-meta {
+    display: flex;
+    gap: 15px;
+    color: #888;
+}
+
+.blog-read-more {
+    color: var(--accent-color, #c8a2c8);
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
 .blog-video {
     position: relative;
     padding-top: 56.25%;
