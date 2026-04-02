@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Substitua o título da página abaixo -->
+    <title>Sua Notícia Aqui - Nosso Infinito Particular</title>
+    <link rel="icon" href="./favicon.ico" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="news-page">
+    
+    <nav class="news-nav">
+        <a class="news-nav-back" href="index.html#posts">
+            <span class="back-arrow">←</span> Voltar para o Blog
+        </a>
+        <div class="news-logo">Nosso Jornalzinho</div>
+        <div class="news-nav-links">
+            <!-- Categorias (não precisa mudar, a menos que queira novas) -->
+            <a href="#">Romance</a>
+            <a href="#">Aventuras</a>
+            <a href="#">Futuro</a>
+        </div>
+    </nav>
+
+    <div class="news-layout">
+        <!-- ÁREA PRINCIPAL DA MATÉRIA -->
+        <main class="news-main-content">
+            <article class="news-article-box">
+                <header class="news-article-header">
+                    <!-- 1. CATEGORIA (kicker). Ex: Relacionamento, Surpresa, Humor -->
+                    <span class="news-kicker">Sua Categoria Aqui</span>
+                    
+                    <!-- 2. TÍTULO PRINCIPAL (A chamada principal) -->
+                    <h1 class="news-headline">Escreva a Grande Manchete Aqui</h1>
+                    
+                    <!-- 3. SUBTÍTULO (O resumo da história logo abaixo do título) -->
+                    <h2 class="news-subheadline">Escreva aqui um resuminho instigante sobre o que aconteceu neste dia maravilhoso.</h2>
+                    
+                    <div class="news-author-meta">
+                        <!-- 4. FOTO DE QUEM ESCREVEU (Mude o src para a sua imagem) -->
+                        <img src="./assets/img/gata-3.jpg" alt="Nome do Autor" class="news-author-img">
+                        <div class="news-meta-text">
+                            <!-- 5. QUEM ESTÁ ESCREVENDO E DATA -->
+                            <strong>Por Seu Nome (Rita)</strong>
+                            <span>Publicado em (Data de hoje)</span>
+                        </div>
+                    </div>
+                </header>
+
+                <!-- 6. MÍDIA PRINCIPAL (Vídeo ou Imagem) -->
+                <!-- Se for usar IMG (foto), exclua o iframe e descomente a linha abaixo: -->
+                <!-- <img src="caminho/da/foto.jpg" style="width: 100%; border-radius: 16px;" alt="Descrição"> -->
+                <div class="news-media-container">
+                    <iframe src="LINK_DO_YOUTUBE_AQUI_SE_HOUVER" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    
+                    <!-- 7. LEGENDA DA IMAGEM/VÍDEO -->
+                    <p class="news-media-caption">Foto/Vídeo: O que essa imagem significa para nós.</p>
+                </div>
+
+                <!-- 8. TEXTOS DA NOTÍCIA -->
+                <!-- Regra prática: Cada parágrafo deve ficar dentro das tags <p> e </p> -->
+                <div class="news-body-content">
+                    
+                    <!-- O span "news-dropcap" faz a primeira letra ficar grande, como num jornal de verdade -->
+                    <p><span class="news-dropcap">E</span>screva o primeiro parágrafo da sua matéria aqui. Comece contando como o dia iniciou ou o contexto do registro.</p>
+                    
+                    <p>Escreva o segundo parágrafo aqui. É super fácil, basta digitar aqui no meio.</p>
+                    
+                    <!-- 8.1. CITAÇÃO BONITA (OPCIONAL) -->
+                    <blockquote class="news-inline-quote">
+                        "Coloque aqui uma frase marcante, romântica ou engraçada que foi dita nesse dia."
+                    </blockquote>
+
+                    <p>Escreva o terceiro parágrafo, ou a conclusão da história aqui.</p>
+                </div>
+
+                <!-- 9. PALAVRAS-CHAVE (Tags) -->
+                <div class="news-tags">
+                    <span class="news-tag">Memória</span>
+                    <span class="news-tag">Amor</span>
+                </div>
+
+                <!-- 10. ASSINATURA NO FINAL DA NOTÍCIA -->
+                <div class="news-author-footer">
+                    <!-- A Primeira letra do seu nome para o círculo -->
+                    <div class="news-avatar-lg">R</div>
+                    <div class="news-author-footer-info">
+                        <h4>Rita</h4>
+                        <p>Namorada incrível e agora criadora oficial de memórias neste jornalzinho.</p>
+                    </div>
+                </div>
+            </article>
+
+            <!-- 11. COMENTÁRIOS DO LEITOR (O Tauã pode "comentar" a sua matéria) -->
+            <section class="news-comments-section">
+                <h3 class="news-section-title">Comentários (1)</h3>
+                
+                <div class="news-comment-box">
+                    <div class="news-comment-avatar">T</div>
+                    <div class="news-comment-body">
+                        <p class="news-comment-name">Tauã Felipe <span class="news-comment-date">Há 2 horas</span></p>
+                        <p class="news-comment-text">"Essa foi a melhor publicação que eu já li. Você é a repórter mais linda do mundo."</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- A BARRA LATERAL (SIDEBAR) NÃO PRECISA DEIXAR ELA EDITAR SEMPRE, PODE DEIXAR COMO ESTÁ -->
+        <aside class="news-sidebar">
+            <div class="news-widget">
+                <h3 class="news-widget-title">Destaque do Dia</h3>
+                <div class="news-split">
+                    <div class="news-split-main">
+                        <h4 class="news-split-title">Um presente que guardei</h4>
+                        <p>O que eu senti quando você fez aquilo que não vou esquecer nunca.</p>
+                    </div>
+                    <div class="news-split-side">
+                        <span class="news-split-label">Exclusivo</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="news-widget">
+                <h3 class="news-widget-title">Mais Lidas</h3>
+                <div class="news-related-list">
+                    <a href="#" class="news-related-item">
+                        <span class="news-related-number">1</span>
+                        <div class="news-related-info">
+                            <span class="news-related-kicker">Passeio</span>
+                            <h4>O dia em que quase adotamos um gato de rua</h4>
+                        </div>
+                    </a>
+                    <a href="#" class="news-related-item">
+                        <span class="news-related-number">2</span>
+                        <div class="news-related-info">
+                            <span class="news-related-kicker">Surpresa</span>
+                            <h4>A mensagem inesperada das 3 da manhã</h4>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="news-widget news-newsletter">
+                <h3>Edição Impressa?</h3>
+                <p>Nenhuma árvore foi derrubada para criar essa notícia, mas guardaremos no coração.</p>
+                <button class="news-btn-love">Amo Você ❤️</button>
+            </div>
+        </aside>
+    </div>
+
+</body>
+</html>
